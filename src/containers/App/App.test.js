@@ -1,6 +1,56 @@
 import React from 'react';
-import './App';
+import App, { mapStateToProps, mapDispatchToProps } from './App';
+import { fetchPokemon } from '../../thunks/fetchPokemon';
+
+jest.mock('../../thunks/fetchPokemon')
 
 describe('App', () => {
+    describe('mapStateToProps', () => {
+        it('should return an object with loading and error', () => {
+            const mockState = {
+                pokemon: [
+                    { 
+                        id: "1",
+                        name: "normal"
+                    },
+                    { 
+                        id: "2",
+                        name: "fighting"
+                    }
+                ],
+                loading: false,
+                error: '',
+                moreStuff: []
+            }
+
+            const expected = {
+                loading: false,
+                error: ''
+            }
+
+        const mappedProps = mapStateToProps(mockState)
+        expect(mappedProps).toEqual(expected)
+        });
+    });
+
+    describe('mapDispatchToProps', () => {
+        it('calls dispatch with an fetchPokemon action when fetchPokemon is called', () => {
+            const pokemon = [
+                { 
+                    id: "1",
+                    name: "normal"
+                },
+                { 
+                    id: "2",
+                    name: "fighting"
+                }
+            ]
+            const mockDispatch = jest.fn()
+            const actionToDispatch = fetchPokemon(pokemon)
+            const mappedProps = mapDispatchToProps(mockDispatch)
+            mappedProps.fetchPokemon(pokemon)
+            expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+        })
+    });
+});
     
-})

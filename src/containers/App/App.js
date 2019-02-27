@@ -24,13 +24,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   loading: state.loading,
-  error: state.error,
-  pokemon: state.pokemon
+  error: state.error
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   fetchPokemon: (url) => dispatch(fetchPokemon(url))
 });
 
