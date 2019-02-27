@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import CardContainer from '../CardContainer/CardContainer';
 import { fetchPokemon } from '../../thunks/fetchPokemon';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+// import { loadingIcon } from '../../loading.gif';
 
 class App extends Component {
   constructor() {
@@ -17,11 +18,7 @@ class App extends Component {
   render() {
     if (this.props.loading) {
       return (
-        <div className='App'>
-        <h1 className='header'> POKéDEX </h1>
-        <p>POKeDEX is loading ...</p>
-        <CardContainer />
-      </div>
+        <img src={require('../../loading.gif')} />
       )
     } else if (this.props.error) {
       return (

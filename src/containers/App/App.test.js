@@ -35,20 +35,10 @@ describe('App', () => {
 
     describe('mapDispatchToProps', () => {
         it('calls dispatch with an fetchPokemon action when fetchPokemon is called', () => {
-            const pokemon = [
-                { 
-                    id: "1",
-                    name: "normal"
-                },
-                { 
-                    id: "2",
-                    name: "fighting"
-                }
-            ]
             const mockDispatch = jest.fn()
-            const actionToDispatch = fetchPokemon(pokemon)
+            const actionToDispatch = fetchPokemon()
             const mappedProps = mapDispatchToProps(mockDispatch)
-            mappedProps.fetchPokemon(pokemon)
+            mappedProps.fetchPokemon()
             expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
         })
     });
