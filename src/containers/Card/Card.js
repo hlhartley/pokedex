@@ -7,7 +7,7 @@ class Card extends Component {
     render() {
         return (
             <div className='Card'>
-                Card
+                {this.props.pokemon.name}
             </div>
         );
     }

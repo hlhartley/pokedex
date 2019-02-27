@@ -7,10 +7,9 @@ class CardContainer extends Component {
     render() {
         console.log(this.props.pokemon)
         return (
-            <div className='CardContainer'>
-                CardContainer
-                <Card />
-            </div>
+            this.props.pokemon.map((pokemon) => {
+                return <Card pokemon={pokemon}/>
+            })
         );
     }
 }
