@@ -4,5 +4,5 @@ export const pokemonReducer = (state = [], action) => {
             return action.pokemon
         default:
             return state
-    };
+    }
 }; 

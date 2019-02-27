@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './CardContainer.css';
-import Card from '../Card/Card'
-
+import Card from '../Card/Card';
+import { connect } from 'react-redux';
 
 class CardContainer extends Component {
-
     render() {
+        console.log(this.props.pokemon)
         return (
             <div className='CardContainer'>
                 CardContainer
@@ -15,5 +15,8 @@ class CardContainer extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    pokemon: state.pokemon
+});
 
-export default CardContainer;
+export default connect(mapStateToProps)(CardContainer);

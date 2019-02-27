@@ -10,7 +10,6 @@ export const fetchPokemon = (url) => {
             }
             dispatch(isLoading(false))
             const pokemon = await response.json()
-            debugger
             dispatch(getPokemon(pokemon))
         } catch (error) {
             dispatch(setError(error.message))

@@ -11,7 +11,7 @@ class App extends Component {
 
   componentDidMount = () => {
     const url = 'http://localhost:3001/types'
-    fetchPokemon(url)
+    this.props.fetchPokemon(url)
   }
 
   render() {
