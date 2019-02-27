@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import CardContainer from '../CardContainer/CardContainer';
+
 
 class App extends Component {
 
@@ -7,10 +9,10 @@ class App extends Component {
     return (
       <div className='App'>
         <h1 className='header'> POKéDEX </h1>
+        <CardContainer />
       </div>
     );
   }
 }
-
 
 export default App;
